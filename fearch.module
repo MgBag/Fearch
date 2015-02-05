@@ -10,11 +10,11 @@
 /**
  * Implements hook_menu().
  */
-function custom_module_menu() {
+function fearch_menu() {
 
   $items['example'] = array(
     'title' => 'Example Page',
-    'page callback' => 'custom_module_page',
+    'page callback' => 'fearch_page',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
@@ -25,13 +25,13 @@ function custom_module_menu() {
 /**
  * Implements hook_help().
  */
-function custom_module_help($path, $arg) {
+function fearch_help($path, $arg) {
 
   switch ($path) {
-    case 'admin/help#custom_module':
+    case 'admin/help#fearch':
 
       // Return a line-break version of the README.
-      $readme = file_get_contents(drupal_get_path('module', 'custom_module') . '/README.txt');
+      $readme = file_get_contents(drupal_get_path('module', 'fearch') . '/README.txt');
       return nl2br($readme);
   }
 }
@@ -45,7 +45,7 @@ function custom_module_help($path, $arg) {
  * @return string
  *   The content of the page.
  */
-function custom_module_page() {
+function fearch_page() {
 
   return 'example';
 }
@@ -55,9 +55,9 @@ function custom_module_page() {
  *
  * Add JavaScript and CSS code to every page.
  */
-function custom_module_page_build() {
+function fearch_page_build() {
 
-  drupal_add_js(drupal_get_path('module', 'custom_module') . '/js/custom_module.js');
-  drupal_add_css(drupal_get_path('module', 'custom_module') . '/css/custom_module.css');
+  drupal_add_js(drupal_get_path('module', 'fearch') . '/js/fearch.js');
+  drupal_add_css(drupal_get_path('module', 'fearch') . '/css/fearch.css');
 
 }
