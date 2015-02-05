@@ -11,7 +11,7 @@
 /**
  * Implements hook_install().
  */
-function custom_module_install() {
+function fearch_install() {
 
   // Do some things on install, like setting the module weight.
 }
@@ -19,7 +19,7 @@ function custom_module_install() {
 /**
  * Implements hook_uninstall().
  */
-function custom_module_uninstall() {
+function fearch_uninstall() {
 
   // Do some things on uninstall, like deleting all variables.
 }
