@@ -9,7 +9,7 @@
 
 
 
-function afaslicenses_schema() {
+function fearch_schema() {
 	
 	$schema = array();
 	
@@ -70,12 +70,12 @@ function afaslicenses_schema() {
 	return $schema;
 }
 
-function afaslicenses_install() {
+function fearch_install() {
 	// Create my tables.
 	drupal_install_schema('afaslicenses');
 }
 
-function afaslicenses_uninstall() {
+function fearch_uninstall() {
 	// Drop my tables.
 	drupal_uninstall_schema('afaslicenses');
 }
