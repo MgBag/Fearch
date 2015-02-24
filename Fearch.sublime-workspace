@@ -16,10 +16,34 @@
 	"buffers":
 	[
 		{
-			"file": "/C/GitHub/PHPSOAPtoSQL/sftp-config.json",
+			"file": "/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
 			"settings":
 			{
-				"buffer_size": 915,
+				"buffer_size": 6737,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/temp/support/Content/Rln_EMS/EMS_2.1.1_releasenotes.htm",
+			"settings":
+			{
+				"buffer_size": 10507,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "fearch.install",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/temp/support/Content/General/Compatibility.htm",
+			"settings":
+			{
+				"buffer_size": 19174,
 				"line_ending": "Windows"
 			}
 		}
@@ -27,12 +51,48 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 219.0,
+		"height": 288.0,
 		"selected_items":
 		[
 			[
 				"save ",
 				"Project: Save As"
+			],
+			[
+				"pro",
+				"Project: Save As"
+			],
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"project",
+				"Project: Add Folder"
+			],
+			[
+				"view",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"view:",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"tabs",
+				"View: Toggle Tabs"
+			],
+			[
+				"tab s",
+				"View: Toggle Tabs"
+			],
+			[
+				"project:",
+				"Project: Close"
 			],
 			[
 				"add fol",
@@ -59,14 +119,6 @@
 				"Project: Save As"
 			],
 			[
-				"project",
-				"Project: Save As"
-			],
-			[
-				"save",
-				"Project: Save As"
-			],
-			[
 				"install Package",
 				"Package Control: Install Package"
 			],
@@ -75,7 +127,7 @@
 				"Set Syntax: R Console"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -100,6 +152,27 @@
 	],
 	"file_history":
 	[
+		"/C/GitHub/Hasefesi/Hasefesi/Hasefesi/temp.txt",
+		"/C/GitHub/Fearch/fearch.module",
+		"/C/GitHub/Fearch/Fearch.sublime-project",
+		"/C/GitHub/Fearch/README.txt",
+		"/C/temp/support/index.htm",
+		"/C/GitHub/Fearch/fearch.info",
+		"/C/GitHub/Fearch/fearch.views.inc",
+		"/C/GitHub/Fearch/fearch.view.inc",
+		"/C/Users/Benjamin/AppData/Roaming/Sublime Text 3/Packages/User/HTML.sublime-settings",
+		"/C/GitHub/Fearch/fearch.install",
+		"/C/GitHub/Fearch/fearch.api.php",
+		"/C/GitHub/Fearch/custom_module.api.php",
+		"/C/GitHub/Fearch/custom_module.install",
+		"/C/GitHub/Daisey/sftp-config.json",
+		"/C/GitHub/Fearch/custom_module.module",
+		"/C/GitHub/Fearch/sftp-config.json",
+		"/C/Users/Benjamin/AppData/Local/Temp/Rar$DRa0.840/drupal-module-boilerplate-7.x-1.x/README.txt",
+		"/C/Users/Benjamin/AppData/Local/Temp/Rar$DRa0.840/drupal-module-boilerplate-7.x-1.x/custom_module.module",
+		"/C/Users/Benjamin/AppData/Local/Temp/Rar$DRa0.840/drupal-module-boilerplate-7.x-1.x/custom_module.install",
+		"/C/Users/Benjamin/AppData/Local/Temp/Rar$DRa0.840/drupal-module-boilerplate-7.x-1.x/custom_module.info",
+		"/C/Users/Benjamin/AppData/Local/Temp/Rar$DRa0.840/drupal-module-boilerplate-7.x-1.x/custom_module.api.php",
 		"/C/temp/WorldScenery.cpp",
 		"/C/temp/WorldScenery.h",
 		"/C/GitHub/Jerry/Jerry/levelmjet.oel",
@@ -143,6 +216,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"log\\n",
+			"log",
+			"ire",
+			"log",
+			"ire",
+			"ire-",
+			"ire",
+			"and\\n",
+			"\\nand",
+			"\\nand\\n",
+			"and",
+			"_",
+			"2.2.",
+			".",
+			"&",
+			"<style>",
+			"style",
+			"custom_module",
 			"JELLYWORLD",
 			"COIN",
 			"soap",
@@ -173,6 +264,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"fearch",
 			"license",
 			"\\n[",
 			"Array\\n"
@@ -186,24 +278,56 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/GitHub/PHPSOAPtoSQL/sftp-config.json",
+					"file": "/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 915,
+						"buffer_size": 6737,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								565,
-								565
+								4266,
+								4266
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1327.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/temp/support/Content/Rln_EMS/EMS_2.1.1_releasenotes.htm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8889,
+								8889
 							]
 						],
 						"settings":
@@ -211,15 +335,78 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
+						"translation.y": 1575.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "fearch.install",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"synced": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/temp/support/Content/General/Compatibility.htm",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								607,
+								614
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -267,7 +454,7 @@
 	"project": "Fearch.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -275,6 +462,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\GitHub\\PHPSOAPtoSQL\\soaptosql.php"
+			]
 		],
 		"width": 0.0
 	},
@@ -302,7 +493,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,

@@ -1,25 +1,81 @@
 <?php
 
-/**
- * @file
- * Install and uninstall code for Custom Module.
- *
- * Long description here.
- */
+// This file should define and create the tables required by the module.
 
 
 /**
- * Implements hook_install().
+ * Implements hook_schema().
  */
-function fearch_install() {
 
-  // Do some things on install, like setting the module weight.
+
+
+function afaslicenses_schema() {
+	
+	$schema = array();
+	
+	$schema['fearch_word'] = array(
+		'description' => 'This table contains a collection of words',
+		'fields' => array(
+			'word' => array(
+				'description' => 'The word itself',
+				'type' => 'varchar',
+				'not null' => TRUE,
+			)
+		),
+		'primary key' => array('word')
+	);
+
+	$schema['fearch_article'] = array(
+		'description' => 'This table contains all the articles',
+		'fields' => array(
+			'name' => array(
+				'description' => 'The name (title)',
+				'type' => 'varchar',
+				'not null' => TRUE,
+			),
+			'uri' => array(
+				'description' => 'The relative path',
+				'type' => 'varchar',
+				'not null' => TRUE,
+			)
+		),
+		'primary key' => array('url')
+	);
+
+	$schema['fearch_word_article'] = array(
+		'description' => 'Couple table',
+		'fields' => array(
+			'id' => array(
+				'description' => 'The id, for lack of shared primary keys',
+				'type' => 'int',
+				'unsigned' => FALSE,
+				'not null' => TRUE,
+			),
+			'word' => array(
+				'description' => 'The word',
+				'type' => 'int',
+				'unsigned' => FALSE,
+				'not null' => TRUE,
+			),
+			'article' => array(
+				'description' => 'The article',
+				'type' => 'int',
+				'unsigned' => FALSE,
+				'not null' => TRUE,
+			)
+		),
+		'primary key' => array('id')
+	);
+
+	return $schema;
 }
 
-/**
- * Implements hook_uninstall().
- */
-function fearch_uninstall() {
+function afaslicenses_install() {
+	// Create my tables.
+	drupal_install_schema('afaslicenses');
+}
 
-  // Do some things on uninstall, like deleting all variables.
+function afaslicenses_uninstall() {
+	// Drop my tables.
+	drupal_uninstall_schema('afaslicenses');
 }

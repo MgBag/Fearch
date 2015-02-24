@@ -1,3 +1,4 @@
 name = Fearch
 description = F(lare)(S)earch, Fearch.
 core = 7.x
+files[] = fearch.module

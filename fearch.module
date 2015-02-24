@@ -1,63 +1,17 @@
 <?php
 
-/**
- * @file
- * Short file description here.
- *
- * Long description here.
- */
+function fearch_views_pre_render(&$view)
+{
+	$query = $view->exposed_raw_input->combine_1;
 
-/**
- * Implements hook_menu().
- */
-function fearch_menu() {
+	//if ($query != "")
+	//{
+		$html = file_get_contents("https://127.0.0.1/sites/all/modules/daisey/files/rnotes/index.htm#search-" . $query);
+		
+		$xml = new SimpleXMLElement($html);
+		$xpath = $xml->xpath('ul[@id="resultList"]');
 
-  $items['example'] = array(
-    'title' => 'Example Page',
-    'page callback' => 'fearch_page',
-    'access arguments' => array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-  );
-
-  return $items;
-}
-
-/**
- * Implements hook_help().
- */
-function fearch_help($path, $arg) {
-
-  switch ($path) {
-    case 'admin/help#fearch':
-
-      // Return a line-break version of the README.
-      $readme = file_get_contents(drupal_get_path('module', 'fearch') . '/README.txt');
-      return nl2br($readme);
-  }
-}
-
-/**
- * Page example callback, referenced in hook_menu().
- *
- * Description of what the page displays.
- * Second line of the description.
- *
- * @return string
- *   The content of the page.
- */
-function fearch_page() {
-
-  return 'example';
-}
-
-/**
- * Implements hook_page_build().
- *
- * Add JavaScript and CSS code to every page.
- */
-function fearch_page_build() {
-
-  drupal_add_js(drupal_get_path('module', 'fearch') . '/js/fearch.js');
-  drupal_add_css(drupal_get_path('module', 'fearch') . '/css/fearch.css');
-
+		$view->attachment_before = "Query: " . $query;
+		$view->attachment_after = "this is text " . $html;
+	//}
 }
