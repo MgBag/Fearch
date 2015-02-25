@@ -14,32 +14,47 @@ function fearch_schema() {
 	$schema = array();
 	
 	$schema['fearch_word'] = array(
-		'description' => 'This table contains a collection of words',
+		'description' => 'This table contains a collection of words.',
 		'fields' => array(
+			'id' => array(
+				'description' => 'The id, for lack of shared primary keys',
+				'type' => 'int',
+				'unsigned' => FALSE,
+				'not null' => TRUE,
+			),
 			'word' => array(
 				'description' => 'The word itself',
 				'type' => 'varchar',
+				'length' => 1118,
 				'not null' => TRUE,
 			)
 		),
-		'primary key' => array('word')
+		'primary key' => array('id')
 	);
 
 	$schema['fearch_article'] = array(
 		'description' => 'This table contains all the articles',
 		'fields' => array(
+			'id' => array(
+				'description' => 'The id, for lack of shared primary keys',
+				'type' => 'int',
+				'unsigned' => FALSE,
+				'not null' => TRUE,
+			),
 			'name' => array(
 				'description' => 'The name (title)',
 				'type' => 'varchar',
+				'length' => 1118,
 				'not null' => TRUE,
 			),
 			'uri' => array(
 				'description' => 'The relative path',
 				'type' => 'varchar',
+				'length' => 1118,
 				'not null' => TRUE,
 			)
 		),
-		'primary key' => array('url')
+		'primary key' => array('id')
 	);
 
 	$schema['fearch_word_article'] = array(
@@ -51,31 +66,35 @@ function fearch_schema() {
 				'unsigned' => FALSE,
 				'not null' => TRUE,
 			),
-			'word' => array(
+			'wid' => array(
 				'description' => 'The word',
 				'type' => 'int',
 				'unsigned' => FALSE,
 				'not null' => TRUE,
 			),
-			'article' => array(
+			'aid' => array(
 				'description' => 'The article',
 				'type' => 'int',
 				'unsigned' => FALSE,
 				'not null' => TRUE,
 			)
 		),
+		'foreign keys' => array(
+			'word' => array(
+				'table' => 'fearch_word',
+				'columns' => array('wid' => 'id')
+			),
+			'article' => array(
+				'table' => 'fearch_article',
+				'columns' => array('aid', 'id')
+			)
+		),
+		'indexes' => array(
+			'aindex' => array('aid'),
+			'windex' => array('wid'),
+		),
 		'primary key' => array('id')
 	);
 
 	return $schema;
-}
-
-function fearch_install() {
-	// Create my tables.
-	drupal_install_schema('afaslicenses');
-}
-
-function fearch_uninstall() {
-	// Drop my tables.
-	drupal_uninstall_schema('afaslicenses');
 }
