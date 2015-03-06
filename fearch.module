@@ -31,7 +31,7 @@ function fearch_views_pre_render(&$view)
 		for ($i=0; $i < count($result); ++$i) 
 		{
 			$dir = split('/', $result[$i]->uri);
-			$dir = $dir[0];
+			$dir = str_replace('_', ' ', $dir[0]);
 
 			if ($sort[$dir])
 			{
@@ -41,7 +41,7 @@ function fearch_views_pre_render(&$view)
 					$sort[$dir]["content"] .= '<div class="views-row kc-item">
 						<span class="views-field views-field-title">
 							<strong class="field-content">
-								<a href="' . $result[$i]->uri . '">' . $result[$i]->name . '</a>
+								<a href="' . $result[$i]->uri . '" target="_blank">' . $result[$i]->name . '</a>
 							</strong> 
 						</span>
 						<div class="views-field views-field-body">
@@ -61,7 +61,7 @@ function fearch_views_pre_render(&$view)
 				$sort[$dir]["content"] = '<div class="views-row kc-item">
 						<span class="views-field views-field-title">
 							<strong class="field-content">
-								<a href="' . $result[$i]->uri . '">' . $result[$i]->name . '</a>
+								<a href="' . $result[$i]->uri . '" target="_blank">' . $result[$i]->name . '</a>
 							</strong> 
 						</span>
 						<div class="views-field views-field-body">
