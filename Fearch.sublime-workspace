@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"view",
+				"viewQuery"
+			],
+			[
+				"fearch_",
+				"fearch_word"
+			],
+			[
 				"org",
 				"organisation"
 			],
@@ -16,27 +24,36 @@
 	"buffers":
 	[
 		{
-			"file": "/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
-			"settings":
-			{
-				"buffer_size": 6737,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/temp/support/Content/Rln_EMS/EMS_2.1.1_releasenotes.htm",
-			"settings":
-			{
-				"buffer_size": 10507,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "fearch.install",
 			"settings":
 			{
-				"buffer_size": 1794,
+				"buffer_size": 2097,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "fearch.module",
+			"settings":
+			{
+				"buffer_size": 779,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Fearch.sublime-project",
+			"settings":
+			{
+				"buffer_size": 73,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "SELECT * FROM a fearch_article\nLEFT JOIN wa fearch_word_article \nON wa.id = a.id;\n\n\nSELECT * FROM fearch_article a RIGHT JOIN fearch_word_article wa ON wa.aid = a.id;\n\n			(SELECT id FROM fearch_word where word like '%ned%' AND id = wa.wid);\n\nSELECT\n	a.name\nFROM\n	fearch_word_article wa \nRIGHT JOIN\n	fearch_article a \n	ON \n	wa.aid = a.id \nJOIN\n	fearch_word w\n	ON\n	wa.wid = w.id;\nWHERE wa.word like %ned%;\n\n\nSELECT a.name FROM fearch_word_article wa RIGHT JOIN fearch_article a ON wa.aid = a.id JOIN fearch_word w ON wa.wid = w.id WHERE w.word like '%ned%';",
+			"settings":
+			{
+				"buffer_size": 555,
+				"line_ending": "Windows",
+				"name": "SELECT * FROM a fearch_article"
 			}
 		},
 		{
@@ -152,6 +169,8 @@
 	],
 	"file_history":
 	[
+		"/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
+		"/C/temp/support/Content/Rln_EMS/EMS_2.1.1_releasenotes.htm",
 		"/C/GitHub/Hasefesi/Hasefesi/Hasefesi/temp.txt",
 		"/C/GitHub/Fearch/fearch.module",
 		"/C/GitHub/Fearch/Fearch.sublime-project",
@@ -187,7 +206,6 @@
 		"/C/Users/Benjamin/Downloads/map.xml",
 		"/C/GitHub/PHPSOAPtoSQL/sftp-config.json",
 		"/C/GitHub/PHPSOAPtoSQL/shit.xml",
-		"/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
 		"/C/SublimeProjects/PHPSOAPtoSQL.sublime-workspace",
 		"/C/GitHub/PHPSOAPtoSQL/SOAPtoSQL.php",
 		"/C/SublimeProjects/PHPSOAPtoSQL.sublime-project",
@@ -280,108 +298,136 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/GitHub/PHPSOAPtoSQL/soaptosql.php",
+					"file": "fearch.install",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6737,
+						"buffer_size": 2097,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4266,
-								4266
+								1215,
+								1215
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
-							"remote_loading": false,
 							"synced": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1327.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/temp/support/Content/Rln_EMS/EMS_2.1.1_releasenotes.htm",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								8889,
-								8889
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 450.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "fearch.install",
+					"buffer": 1,
+					"file": "fearch.module",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1794,
+						"buffer_size": 779,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								626,
-								626
+								625,
+								625
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
+							"remote_loading": false,
 							"synced": true,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 135.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
+					"buffer": 2,
+					"file": "Fearch.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 73,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
 					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								555,
+								406
+							]
+						],
+						"settings":
+						{
+							"auto_name": "SELECT * FROM a fearch_article",
+							"incomplete_sync": null,
+							"spell_check": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "/C/temp/support/Content/General/Compatibility.htm",
 					"semi_transient": false,
 					"settings":
@@ -410,7 +456,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -458,7 +504,7 @@
 	"project": "Fearch.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 86.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -47,6 +47,12 @@ function fearch_schema() {
 				'length' => 1118,
 				'not null' => TRUE,
 			),
+			'preview' => array(
+				'description' => 'Preview of the article',
+				'type' => 'varchar',
+				'length' => 1118,
+				'not null' => TRUE,
+			),
 			'uri' => array(
 				'description' => 'The relative path',
 				'type' => 'varchar',

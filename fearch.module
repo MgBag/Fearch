@@ -2,16 +2,88 @@
 
 function fearch_views_pre_render(&$view)
 {
-	$query = $view->exposed_raw_input->combine_1;
+	$viewInput = strtolower($view->exposed_raw_input['combine_1']);
 
-	//if ($query != "")
-	//{
-		$html = file_get_contents("https://127.0.0.1/sites/all/modules/daisey/files/rnotes/index.htm#search-" . $query);
-		
-		$xml = new SimpleXMLElement($html);
-		$xpath = $xml->xpath('ul[@id="resultList"]');
+	if ($view->name == "knowledge_center" && $viewInput != "")
+	{
+		$viewQuery = split(' ', $viewInput);
+		$whereClause = "";
+		$parameters = array();
 
-		$view->attachment_before = "Query: " . $query;
-		$view->attachment_after = "this is text " . $html;
-	//}
+		for ($i=0; $i < count($viewQuery); ++$i) 
+		{
+			if ($viewQuery[$i] != "") 
+			{ 
+				$whereClause .= "AND (SELECT count(*) FROM fearch_word_article_view WHERE aid = a.id AND word like :p" . (string)$i . ") > 0 ";
+				$parameters[":p" . $i] = "%" . db_like($viewQuery[$i]) . "%";
+				//$whereClause .= "word LIKE :p" . (string)$i . " OR ";
+				//$parameters[":p" . $i] = "%" . db_like($viewQuery[$i]) . "%";
+			}
+		}
+
+		$whereClause .= ";";
+
+		//$baseQuery = "SELECT DISTINCT a.name, a.uri, a.preview FROM fearch_article a LEFT JOIN fearch_word_article wa on a.id = wa.aid WHERE wa.wid = ANY ";
+		$baseQuery = "SELECT * FROM fearch_article a WHERE 1=1 ";
+		$result = db_query($baseQuery . $whereClause, $parameters)->fetchAll();
+		$sort = array();
+
+		for ($i=0; $i < count($result); ++$i) 
+		{
+			$dir = split('/', $result[$i]->uri);
+			$dir = $dir[0];
+
+			if ($sort[$dir])
+			{
+				if ($sort[$dir]["count"] <= 10)
+				{
+					$sort[$dir]["count"] += 1;
+					$sort[$dir]["content"] .= '<div class="views-row kc-item">
+						<span class="views-field views-field-title">
+							<strong class="field-content">
+								<a href="' . $result[$i]->uri . '">' . $result[$i]->name . '</a>
+							</strong> 
+						</span>
+						<div class="views-field views-field-body">
+							<span class="field-content">
+								' . $result[$i]->preview . '
+							</span>
+						</div>
+					</div>';
+				}
+				else
+				{
+					$sort[$dir]["more"] = true;
+				}
+			}
+			else
+			{
+				$sort[$dir]["content"] = '<div class="views-row kc-item">
+						<span class="views-field views-field-title">
+							<strong class="field-content">
+								<a href="' . $result[$i]->uri . '">' . $result[$i]->name . '</a>
+							</strong> 
+						</span>
+						<div class="views-field views-field-body">
+							<span class="field-content">
+								' . $result[$i]->preview . '
+							</span>
+						</div>
+					</div>';
+				$sort[$dir]["count"] = 1;
+			}
+		}
+
+		$attachment = "";
+
+		foreach ($sort as $key => $value) 
+		{
+			$attachment .= "<p> <h1>" . $key . "</p> </h1> <br> " . $value["content"] . ($value["more"] ? "<br> <p> Set limited to 10 results. Include more specific search terms for more accurate results.</p>" : "");
+		}
+
+		$view->attachment_after = $attachment;
+
+		//print_r($result->fetchAll());
+		//print_r($attachment);
+	}
 }
