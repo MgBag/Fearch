@@ -16,14 +16,11 @@ function fearch_views_pre_render(&$view)
 			{ 
 				$whereClause .= "AND (SELECT count(*) FROM fearch_word_article_view WHERE aid = a.id AND word like :p" . (string)$i . ") > 0 ";
 				$parameters[":p" . $i] = "%" . db_like($viewQuery[$i]) . "%";
-				//$whereClause .= "word LIKE :p" . (string)$i . " OR ";
-				//$parameters[":p" . $i] = "%" . db_like($viewQuery[$i]) . "%";
 			}
 		}
 
 		$whereClause .= ";";
 
-		//$baseQuery = "SELECT DISTINCT a.name, a.uri, a.preview FROM fearch_article a LEFT JOIN fearch_word_article wa on a.id = wa.aid WHERE wa.wid = ANY ";
 		$baseQuery = "SELECT * FROM fearch_article a WHERE 1=1 ";
 		$result = db_query($baseQuery . $whereClause, $parameters)->fetchAll();
 		$sort = array();
