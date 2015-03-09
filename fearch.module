@@ -9,6 +9,9 @@ function fearch_views_pre_render(&$view)
 		$viewQuery = split(' ', $viewInput);
 		$whereClause = "";
 		$parameters = array();
+		
+		// 1=1 is a terrible and lazy hack
+		$baseQuery = "SELECT * FROM fearch_article a WHERE 1=1 ";
 
 		for ($i=0; $i < count($viewQuery); ++$i) 
 		{
@@ -21,21 +24,22 @@ function fearch_views_pre_render(&$view)
 
 		$whereClause .= ";";
 
-		$baseQuery = "SELECT * FROM fearch_article a WHERE 1=1 ";
 		$result = db_query($baseQuery . $whereClause, $parameters)->fetchAll();
-		$sort = array();
+		$group = array();
 
+		// Put everthing into an object for grouping purposes
 		for ($i=0; $i < count($result); ++$i) 
 		{
+			// Set the group as dir
 			$dir = split('/', $result[$i]->uri);
 			$dir = str_replace('_', ' ', $dir[0]);
 
-			if ($sort[$dir])
+			if ($group[$dir])
 			{
-				if ($sort[$dir]["count"] <= 10)
+				if ($group[$dir]["count"] <= 10)
 				{
-					$sort[$dir]["count"] += 1;
-					$sort[$dir]["content"] .= '<div class="views-row kc-item">
+					$group[$dir]["count"] += 1;
+					$group[$dir]["content"] .= '<div class="views-row kc-item">
 						<span class="views-field views-field-title">
 							<strong class="field-content">
 								<a href="' . $result[$i]->uri . '" target="_blank">' . $result[$i]->name . '</a>
@@ -50,12 +54,13 @@ function fearch_views_pre_render(&$view)
 				}
 				else
 				{
-					$sort[$dir]["more"] = true;
+					// More than 10 results returned
+					$group[$dir]["more"] = true;
 				}
 			}
 			else
 			{
-				$sort[$dir]["content"] = '<div class="views-row kc-item">
+				$group[$dir]["content"] = '<div class="views-row kc-item">
 						<span class="views-field views-field-title">
 							<strong class="field-content">
 								<a href="' . $result[$i]->uri . '" target="_blank">' . $result[$i]->name . '</a>
@@ -67,20 +72,17 @@ function fearch_views_pre_render(&$view)
 							</span>
 						</div>
 					</div>';
-				$sort[$dir]["count"] = 1;
+				$group[$dir]["count"] = 1;
 			}
 		}
 
 		$attachment = "";
 
-		foreach ($sort as $key => $value) 
+		foreach ($group as $key => $value) 
 		{
 			$attachment .= "<p> <h1>" . $key . "</p> </h1> <br> " . $value["content"] . ($value["more"] ? "<br> <p> Set limited to 10 results. Include more specific search terms for more accurate results.</p>" : "");
 		}
 
 		$view->attachment_after = $attachment;
-
-		//print_r($result->fetchAll());
-		//print_r($attachment);
 	}
 }

@@ -1,14 +1,4 @@
 <?php
-
-// This file should define and create the tables required by the module.
-
-
-/**
- * Implements hook_schema().
- */
-
-
-
 function fearch_schema() {
 	
 	$schema = array();
