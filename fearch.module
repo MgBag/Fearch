@@ -2,10 +2,16 @@
 
 function fearch_views_pre_render(&$view)
 {
-	$viewInput = strtolower($view->exposed_raw_input['combine_1']);
-
-	if ($view->name == "knowledge_center" && $viewInput != "")
+	
+	if ($view->name == "knowledge_center" && user_is_logged_in())
 	{
+		$viewInput = strtolower($view->exposed_raw_input['combine_1']);
+
+		if ($viewInput == "")
+		{
+			return;
+		}
+	
 		$viewQuery = split(' ', $viewInput);
 		$whereClause = "";
 		$parameters = array();
